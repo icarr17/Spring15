@@ -1,0 +1,197 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{"C:/Documents and Settings/OCAMSSA/My Documents/340A final"/}}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{OPTI 340A}
+\chead{Final Design Report}
+\lhead{Ian Carr}
+
+\begin{document}
+
+\title{Final Design Report}
+\author{Ian Carr\\
+	University of Arizona\\
+	OPTI 340A\\
+	Prof. Yuzuru Takashima}
+\date{December 16, 2014}
+\maketitle
+
+\newpage
+
+
+\listoffigures 
+
+
+\section*{Overview}
+The optimization of the Cooke Triplet objective lens system produced a lens system with a reduced Average RMS spot size, from 207.79$\mu$m to 45.376$\mu$m. A reduction in wave front error was observed from 19 waves to 8 waves, as well as a reduction in astigmatism. However, distortions around the edges of the image were created with the optimized system.
+
+\newpage
+
+The purpose of this design was to optimize a Cooke Triplet objective lens system to have a minimum Average RMS spot size. The Average RMS spot size is calculated as the average sum of the RMS spot size for three fields. The three fields are on axis, full field, and 70\% of paraxial image height. The optimization was restricted to one aspheric surface limited to the Conic constant, the $4^{th}$ order, and the $6^{th}$ order coefficients. The F/\# of F/3 was also constant as well as the EFL of 100mm. However, thickness of the lens, lens spacing, and glass material were able to be varied to achieve optimization.\\
+
+The figures below are of the initial Cooke Triplet lens system. Figure 1 shows the lens prescription of the original triplet before optimization. Figure 2 shows the 2D layout of the lens. Figure 3 shows the Spot Size diagram of the lens. Figure 4 shows the rayfan diagram of the lens. Figure 5 shows the OPD plot of the lens. Figure 6 shows the distortion grid of the lens. Figure 7 shows the third order aberrations of the lens. Figure 8 shows the chromatic focal shift plot of the lens. \\
+
+The Average RMS spot size of the original lens system is 207.79$\mu$m.\\
+
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet Prescription"}
+	\centering
+	\caption{Triplet Prescription}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet 2Dlayout"}
+	\centering
+	\caption{Triplet 2D Layout}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet Spot"}
+	\centering
+	\caption{Triplet Spot Diagram}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet Rayfan"}
+	\centering
+	\caption{Triplet Rayfan Plot}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet OPD"}
+	\centering
+	\caption{Triplet OPD Plot}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet Distortion Grid"}
+	\centering
+	\caption{Triplet Distortion Grid}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet third"}
+	\centering
+	\caption{Triplet Third Order Aberrations}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"Triplet CFSP"}
+	\centering
+	\caption{Triplet Chromatic Focal Shift Plot}
+	\centering
+\end{figure}
+
+\newpage
+
+In order to optimize this lens, all of the thicknesses and radii of curvatures were allowed to be varied as well as two of the glass types. The first surface was also made to be aspheric and its Conic constant and the $4^{th}$ order, and the $6^{th}$ order coefficients were allowed to be varied. Using CodeV's Automatic Design process, the Cooke Triplet objective system was optimized to minimize the Average RMS spot size. \\
+
+Figure 9 shows the optimized lens prescription. It can be seen that the thickness of the first lens doubled and the first and second surface radii decreased making the lens a higher power. The second lens surface radii were increased, lessening it's power. The glass type of the two first lenses also changed. The image distance from the last surface was also decreased from 85.59mm to 78.69mm.\\
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr Prescription"}
+	\centering
+	\caption{Optimized Prescription}
+	\centering
+\end{figure}
+
+
+Figure 10 shows the aspheric surface prescription. As it is shown, the Conic constant, the $4^{th}$ order, and the $6^{th}$ order coefficients were allowed to be varied.\\
+
+\begin{figure}[H]
+	\includegraphics[width=.4\linewidth]{"icarr aspheric prescription"}
+	\centering
+	\caption{Optimized Aspheric Prescription}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 11 shows the 2D lens layout in which the changes in the lens system can be viewed.\\
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr 2D layout"}
+	\centering
+	\caption{Optimized 2D Layout}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 12 shows the optimized spot diagram. The Average RMS spot size is calculated to be 45.376$\mu$m, a significant decrease from the original 207.79$\mu$m. It can be seen that the on axis spot size is very small. The off axis spot sizes show coma in the system.\par
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr Spot"}
+	\centering
+	\caption{Optimized Spot Diagram}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 13 shows the rayfan plot of the optimized system. The rayfan plot reduced from .5mm to .1mm.\\
+
+\begin{figure}[H]
+	\includegraphics[width=.95\linewidth]{"icarr Rayfan"}
+	\centering
+	\caption{Optimized Rayfan Plot}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 14 shows the OPD of the optimized system. The OPD plots reduced from 19 waves to 8 waves.\\
+
+\begin{figure}[H]
+	\includegraphics[width=.95\linewidth]{"icarr OPD"}
+	\centering
+	\caption{Optimized OPD Plot}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 15 shows the distortion grid of the optimized lens system. It can be seen that there is distortion around the edges of the image, but there is no distortion around the center of the image which agrees with the spot size diagram.\\
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr Distortion Grid"}
+	\centering
+	\caption{Optimized Distortion Grid}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 16 shows the third order aberration of the optimized system. This plot shows that there is an increase in third order aberrations with the optimized system, particularly for coma and tangential astigmatism. This agrees with the spot and rayfan diagrams.\\
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr third"}
+	\centering
+	\caption{Optimized Third Order Aberrations}
+	\centering
+\end{figure}
+
+\newpage
+
+Figure 17 shows the chromatic focal shift plot of the optimized lens system.\\
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{"icarr CFSP"}
+	\centering
+	\caption{Optimized Chromatic Focal Shift Plot}
+	\centering
+\end{figure}
+
+\end{document}
