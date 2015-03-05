@@ -1,0 +1,18 @@
+RDM;LEN       "VERSION: 10.5 SR1       LENS VERSION: 80       Creation Date: 28-Jan-2014"
+TITLE 'New lens from CVMACRO:cvnewlens.seq'
+EPD   20.1006
+DIM   M
+WL    587.5618
+REF   1
+WTW   1
+INI   ' '
+XAN   0.0
+YAN   0.0
+WTF   1.0
+VUY   0.0
+VLY   0.0
+SO    0.0 100.0
+S     25.0 119.2954 BK7_SCHOTT
+  STO
+SI    0.0 0.0
+GO 
