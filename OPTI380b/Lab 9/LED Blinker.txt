@@ -1,0 +1,13 @@
+' HIGH.bs2
+' This simple program sets I/O pin 0 high for 1/2 second and low for
+' 1/2 second in an endless loop. Connect an LED to P0 for a simple
+' blinker.
+' {$STAMP BS2px}
+
+Main:
+HIGH 0
+PAUSE 500
+LOW 0
+PAUSE 500
+GOTO Main
+END

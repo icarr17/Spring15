@@ -1,0 +1,17 @@
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+adc VAR Byte
+
+
+I2COUT 0, $92, [$40] ' set up the chip (four single-ended inputs, OUTPUT active)
+
+start:
+
+PAUSE 1000
+I2CIN 0, $93, [adc]              ' read the ADC input
+DEBUG BIN8 ? adc, CR             ' prints out the 8-bit version of the voltage reading
+DEBUG DEC ? adc                  ' prints out the decimal version of the voltage reading
+DEBUG DEC (100*adc)/255*50, CR   'prints out the decimal version of the voltage reading
+                                 'scaled to +5VDC max. (0-5000 due to limitations of integer math)
+GOTO start

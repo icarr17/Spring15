@@ -1,0 +1,43 @@
+RDM;LEN       "VERSION: 10.1 SR1       LENS VERSION: 76       Creation Date: 19-Jan-2010"
+TITLE 'New lens from CVMACRO:cvnewlens.seq'
+NA    0.5
+DIM   M
+WL    780.0
+REF   1
+WTW   1
+INI   ' '
+XIM   0.0 0.0 0.0
+YIM   0.0 0.01 0.02
+WTF   1.0 1.0 1.0
+VUY   0.0 0.0 0.0
+VLY   0.0 0.0 0.0
+PRV  
+  PWL 550.0
+  PWL 550.0
+  'C0550' LAU 2.5275 -0.00824759 0.0161384 0.000710762 -0.735332e-4 0.655454e-5
+END  
+SO    0.0 0.1e14
+S     5.0923936 3.69 'C0550'
+  STO
+  SLB "LP 350240"
+  ASP
+  K   -0.473172
+  IC  Yes; CUF 0.0
+  A   0.0; B -0.226e-5; C 0.241164e-8; D -0.82628e-8
+  CIR 4.0
+  CIR EDG 4.0
+S     -56.203101 0.5 AIR
+  ASP
+  K   0.0
+  IC  Yes; CUF 0.0
+  A   0.00051248; B -0.2266e-4; C 0.33e-6; D 0.0
+  CIR 4.0
+  CIR EDG 4.0
+S     0.0 0.25 BK7_SCHOTT
+  CIR 4.0
+  CIR EDG 4.0
+S     0.0 5.16764693455 AIR
+  CIR 4.0
+  CIR EDG 4.0
+SI    0.0 0.0
+GO 

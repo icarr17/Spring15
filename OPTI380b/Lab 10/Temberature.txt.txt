@@ -1,0 +1,20 @@
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+TLB VAR Byte
+THB VAR Byte
+TFRACT VAR Word
+D VAR Byte(2)
+
+D(0)="."
+D(1)="0"
+
+I2COUT 0, $90, [$EE]  'writes to the chip, and commands it to start temperature conversions
+
+start:
+I2COUT 0, $90, [$AA]   'writes to the chip, and commands it to read the last temperature conversion
+I2CIN 0, $91, [THB,TLB]'reads in the temperature, in 2 bytes
+TFRACT=((TLB >> 3) * 312)/10    'converts the decimal fraction of the reading (low byte) to an integer
+IF TFRACT < 100 THEN DEBUG CRSRXY, 0,1, DEC THB, STR D\2, DEC TFRACT
+IF TFRACT > 100 THEN DEBUG CRSRXY, 0,1, DEC THB, STR D\1, DEC TFRACT
+GOTO start

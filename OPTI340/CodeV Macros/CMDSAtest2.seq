@@ -1,0 +1,72 @@
+!-----------------------------
+!
+!
+!
+!-----------------------------
+gbl num ^file
+num ^B ! Shape factor = (R2+R1)/(R2-R1)
+num ^R1 ^R2  ! Radius surface 1, and 2
+num ^index  ! Index of Refraction of thin lens
+num ^fsys ! System focal length
+num ^i  ! Loop Counter
+num ^p ^q ^r
+num ^sol1 ^sol2
+num ^t ! Thickness of the lens
+num ^alpha
+!------
+in ThinLens.seq
+!------
+
+^B == 0
+
+
+
+For ^i -10 10 0.02
+
+^B == ^i+0.000001
+^alpha == (^B-1)/(^B+1)
+^t == 5
+^fsys == 100
+^index == 1.5168
+
+
+^p == ^t*((^index-1)**2)*^alpha/^index
+^q == (^index-1)*(1-^alpha)
+^r == -1/^fsys
+
+^sol1 == (-^q+(^q**2-4*^p*^r)**0.5)/(2*^p)
+^sol2 == (-^q-(^q**2-4*^p*^r)**0.5)/(2*^p)
+
+wri ^p ^q ^r ^sol1 ^sol2
+
+IF absf(^sol1)<absf(^sol2)
+^R1 == 1/^sol1
+ELS
+^R1 == 1/^sol2
+END IF
+
+^R2 == ^R1/^alpha
+wri ^R1 ^R2
+
+
+!wri "R1, R2" ^R1 ^R2
+wri "EFL" (efl)
+wri "B" ^B
+
+!-------
+s1;thi 5
+s2
+rdy ^R1
+thi ^t
+s3
+rdy ^R2
+!sca efl 100
+!-------
+Vie;ssi 12.5;fan;go
+
+!------- File I/O
+ope app u^file Spehrical2.txt
+wri u^file ^B (sa s2) (sa s3) (sa)
+clo u^file
+
+End For

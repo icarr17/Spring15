@@ -1,0 +1,45 @@
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+
+N VAR Word
+I VAR Word
+
+
+Main:
+   DEBUG CLS, "Enter N seconds (1-9): "
+   DEBUGIN SNUM N
+
+    IF (N>9) OR (N<1) THEN
+   DEBUG CR, "Try Again"
+   PAUSE 1000
+   GOTO Main
+ ELSE
+
+  ENDIF
+
+  I = 0
+  DO
+
+  DEBUG CR, "Counting... ", DEC I, "."
+
+   OUTPUT 0
+   OUT0 = I.BIT0
+
+
+   OUTPUT 1
+   OUT1 = I.BIT1
+
+
+   OUTPUT 2
+   OUT2 = I.BIT2
+
+
+   OUTPUT 3
+   OUT3 = I.BIT3
+
+  I=I+1
+  PAUSE 1000
+  LOOP UNTIL (I = N+1)
+  GOTO Main
+ END

@@ -1,0 +1,40 @@
+
+' COUNT.bs2
+
+' Connect an active-low button circuit shown in the BUTTON command
+' description to pin P0 of the BS2.
+' (see page 139 in the book "BASIC Stamp Syntax and Reference Manual" at our webpage.)
+
+' Press the switch once and release it.  Due to switch bounce the contacts will
+' close more than one time.
+' The program measures (counts) each switch closure that occurs in 2 seconds.
+
+
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+PushBtn PIN 0 ' pushbutton on P0
+
+Capture CON 1000 ' 1 second
+cycles VAR Word ' counted cycles
+Main:
+DO
+DEBUG CLS,
+"Press the switch and release it once.", CR,
+"The program will count how many times the switch actually closes, in 2 seconds.", CR
+
+PAUSE 1000
+DEBUG "Ready...", CR
+PAUSE 1000
+DEBUG "Set...", CR
+PAUSE 1000
+DEBUG "GO!", CR
+
+COUNT PushBtn, (Capture */ 891), cycles
+DEBUG "Switch closed: ", DEC cycles, "times."
+PAUSE 3000
+DEBUG "Press button to go again.", CR
+DO : LOOP UNTIL (PushBtn = 0) ' wait for button press
+LOOP
+END
+

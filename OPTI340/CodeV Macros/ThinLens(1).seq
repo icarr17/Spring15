@@ -1,0 +1,21 @@
+RDM;LEN       "VERSION: 10.7       LENS VERSION: 80       Creation Date: 26-Feb-2015"
+TITLE ' '
+FNO   5.0
+DIM   M
+WL    587.5618
+REF   1
+WTW   1
+INI   ' '
+XAN   0.0
+YAN   0.0
+WTF   1.0
+VUY   0.0
+VLY   0.0
+SO    0.0 10336000690011.77
+S     0.0 0.0
+  STO
+S     103.3600069001177 0.0 BK7_SCHOTT
+S     -103.3600069001177 100.0
+  PIM
+SI    0.0 0.0
+GO 

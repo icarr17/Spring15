@@ -1,0 +1,65 @@
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+
+myNum VAR Word
+
+
+Main:
+   DEBUG CLS, "Enter a number between 0 and 255: "
+   DEBUGIN SNUM myNum
+
+
+ IF (myNum>255) OR (myNum<0) THEN
+   DEBUG CR, "Try Again"
+   PAUSE 1000
+   GOTO Main
+ ELSE
+
+
+   DEBUG CRSRXY, 0, 2,
+         SBIN ? myNum
+
+
+   PAUSE 3000
+
+
+   OUTPUT 0
+   OUT0 = myNum.BIT0
+
+
+   OUTPUT 1
+   OUT1 = myNum.BIT1
+
+
+   OUTPUT 2
+   OUT2 = myNum.BIT2
+
+
+   OUTPUT 3
+   OUT3 = myNum.BIT3
+
+
+   OUTPUT 4
+   OUT4 = myNum.BIT4
+
+
+   OUTPUT 5
+   OUT5 = myNum.BIT5
+
+
+   OUTPUT 6
+   OUT6 = myNum.BIT6
+
+
+   OUTPUT 7
+   OUT7 = myNum.BIT7
+
+
+ ENDIF
+
+
+ GOTO Main
+
+
+ END
