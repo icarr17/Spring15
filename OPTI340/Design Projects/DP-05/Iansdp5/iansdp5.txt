@@ -1,0 +1,7 @@
+prob 2
+Na before aplanat: 0.49997
+Na after aplanat: 1.1417
+
+prob 3
+f4 ind(1.6057) na(1.289226)
+f2 ind(1.609110) na(1.29455)

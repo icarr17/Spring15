@@ -1,0 +1,105 @@
+'{$STAMP BS2}
+' ===========================================================================
+' Demonstrates using {U} and {V} commands to get data from Little Step-U
+' ===========================================================================
+
+' Little Step-U connected as follows
+
+'serial in  p10
+'serial out p11
+'busy    p12
+'ip2    p13
+'ip1    p14
+
+' ===========================================================================
+speed    CON  200
+baud    CON  396   'baud setting is 396 for 2400
+
+step_ctr  VAR  Byte
+dir_ctr     VAR Nib
+ip1         VAR Bit
+ip2         VAR Bit
+pos         VAR Word
+inspeed     VAR Word
+inramp      VAR Byte
+
+' ===========================================================================
+
+INPUT  12      ' Busy input
+OUT13 = 1      ' Set bit high before making pin O/P
+OUTPUT 13      ' Change from being pulled high to being driven high
+OUT14 = 1      ' Same for IP1
+OUTPUT 14
+
+' ===========================================================================
+' Get everything into a known state.
+' ===========================================================================
+
+DEBUG CLS, "U & V command example", CR
+PAUSE 100
+GOSUB CheckBusy            ' Check Little Step-U is ready
+SEROUT 10,baud,["{A", DEC speed, ",0,0}"]    ' Set speed, no ramp, full step
+SEROUT 10,baud,["{Q}"]          ' Set current position as home
+SEROUT 10,baud,["{P0}"]          ' Stopped power is off
+
+' ===========================================================================
+' Now do a simple move to an absolute position using the parameters just set.
+' Monitor the BUSY signal to determine when the move has been completed.
+' ===========================================================================
+PAUSE 10
+DEBUG "Moving", CR
+SEROUT 10,baud,["{E-500}"]        ' Go to position 500
+GOSUB CheckBusy            ' Wait till it gets there
+PAUSE 10
+
+' ===========================================================================
+' Use the parsing facility of the SERIN command to extract the information we want.
+' The "100, timeout" instructs the BS2 to goto the timeout routine if the command
+' isn't completed within 100ms. Then it's told to wait for the opening "[" of the
+' response before the next two digits are read as binary numbers. The command
+' automatically removes the comma in between.
+' ===========================================================================
+
+'*******************
+OUT14 = 0           ' Change these two lines to test inputs
+OUT13 = 0           ' In this demo they are connected to the Little Step-U inputs
+'*******************
+
+SEROUT 10,baud,["{V}"]                  ' Command to report input status
+SERIN 11, baud, 100, timeout, [WAIT("["), BIN ip1, BIN ip2]     ' Get data
+DEBUG "IP1=", DEC ip1, " IP2=", DEC ip2, CR                     ' Show it
+
+
+' ===========================================================================
+' The parsing facility of SERIN is used again to extract the position, speed
+' setting and ramp setting from the Little Step-U. This time the SDEC modifier
+' is used to indicate a signed decimal number for the position as it may be
+' negative.
+' ===========================================================================
+OUT13 = 0                               ' Set the pins back to the default state
+OUT14 = 0
+SEROUT 10,baud,["{U}"]                  ' Request motor status
+SERIN 11, baud, 100, timeout, [WAIT("["), SDEC pos, DEC inspeed, DEC inramp]
+DEBUG "POS=", SDEC pos, " SPEED=", DEC inspeed, " RAMP=", DEC inramp, CR
+
+
+stop_here:
+GOTO stop_here
+
+timeout:
+DEBUG "timeout"
+GOTO stop_here
+
+END
+' ===========================================================================
+' CheckBusy subroutine.
+' Continually checks the state of the BUSY output from the Little Step-U and
+' stays here until it becomes "not busy" (low).
+' ===========================================================================
+
+CheckBusy:
+PAUSE 10
+CB_loop:
+if IN12 = 1 then CB_loop      'Wait till not busy
+pause 1
+return

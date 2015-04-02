@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{"C:/Users/Ian/Desktop/Iansdp5"/}}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{OPTI 340}
+\chead{Design Report 5}
+\lhead{Ian Carr}
+
+\cfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\begin{document}
+
+\title{Final Design Report}
+\author{Ian Carr\\
+University of Arizona\\
+OPTI 340\\
+Prof. Yuzuru Takashima}
+\date{March 31, 2015}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+\listoffigures
+
+
+\section*{Overview}
+The purpose of this design report was to observe and study aplanatic surfaces. By using Code V, various lens systems were designed in order to minimize the spot size for the system. This was performed by using aplanatic surfaces along with aspheric surfaces and different refractive indexes.
+
+\newpage
+
+\section{Aspheric Construction}
+
+A single aspheric surface lens was created in Code V based off of the LightPath Technologies Model \# 350240. The specifications in Figure 1 were used for the lens performance. The aspheric lens was made to have C550 glass. There was then a 0.25mm air spacing between the lens and a plane parallel plate window of BK7 glass. Figure 2 shows the system layout with the lens and glass window. Figure 3 shows the geometrical spot diagram of this system. The spot size is shown to be on the order of $1.6\mu$m
+
+\begin{figure}[H]
+\begin{verbatim}
+Specifications
+a) Wavelength = 780nm
+b) Object: at -Infinity
+c) Entrance Pupil Diameter: 8mm (NA in air = 0.5)
+d) FOV defined by image height: 0, 0.01, and 0.02mm
+e) Stop: At the first surface of the aspheric lens.
+\end{verbatim}
+\centering
+\caption{Lens Specifications}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 1 layout"}
+\centering
+\caption{Lens Layout}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 1 spot"}
+\centering
+\caption{Spot Diagram}
+\centering
+\end{figure}
+
+\newpage
+
+\section{Aplanatic Construction}
+An Aplanatic lens immersed in oil of the same refractive index was added to the original system. The glass that was chosen for this lens was BK7. The EPD was held constant at 8mm and the Numerical Aperture (NA) was evaluated. The original NA of the system was found to be 0.5 and the NA after the aplanatic lens was found to be 1.1417. Therefore, the improvement factor for the NA, defined to be $\frac{NA_{New}}{NA_{Old}}$, was calculated to be 2.2834. Figure 4 displays the lens layout with the aplanatic lens and Figure 5 shows the spot diagram. The spot size is on the order of $0.8\mu$m which is half of the original spot size.
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 2 layout"}
+\centering
+\caption{Lens Layout with Aplanatic Surface}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 2 spot"}
+\centering
+\caption{Spot Diagram}
+\centering
+\end{figure}
+
+\newpage
+
+\section{Refractive Index Variation}
+The lens system was then redesigned by changing the glass type of the aplanatic lens. The index of refraction was increased and the NA improvement factor as well as the geometrical spot sizes were evaluated. Two different glass types were used, F4 and F2 having refractive index at 780nm of 1.6057 and 1.6091 respectively. Figure 6 shows the spot diagram of the lens system using F4 glass and Figure 7 shows the spot diagram of the lens system using F2 glass. The NA when using the F4 glass was found to be 1.2892 whereas the NA when using the F2 glass was found to be 1.2946. Then, the NA improvement factors for the aplanatic lens with F4 and F2 glass were calculated to be 1.129 and 1.134 respectively. This shows that increasing the refractive index of the aplanatic lens will increase the NA of the system. For comparison, the improvement factor comparing the first and last lens design is calculated to be 2.59. The spot size for the F4 system is on the order of $0.6\mu$m and the spot size for the F2 system is also on the order of $0.6\mu$m.
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 3 f4"}
+\centering
+\caption{Spot Diagram with F4 Glass}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{"prob 3 f2"}
+\centering
+\caption{Spot Diagram with F2 Glass}
+\centering
+\end{figure}
+
+\section{Summary}
+An aplanatic lens which is immersed in oil of the same refractive index is able to greatly reduce spot size of a system while also being free of spherical aberration and coma. The spot size is also inversely proportional to refractive index of the aplanatic lens. This means that a higher refractive index will yield a smaller spot size.
+\end{document}

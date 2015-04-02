@@ -1,0 +1,11 @@
+aut
+
+@Ast == (tas)-(sas)
+SA S0..I W1 Z1 = 0; WTC 0.001
+TCO S0..I W1 Z1 = 0; WTC 0.001
+@Ast = 0; WTC 0.001
+
+efl = 120
+
+
+go

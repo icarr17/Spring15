@@ -1,0 +1,52 @@
+' {$STAMP BS2px}
+' {$PBASIC 2.5}
+
+speed   VAR   Byte
+ramp    VAR   Byte
+hc      VAR   Nib
+steps   VAR   Byte
+baud    CON   1646   'number used to set the baud rate of the SERIN and SEROUT pins to 2400 baud for the BS2px chip
+
+
+DEBUG CLS, "Little Step-U Demo", CR
+PAUSE 100
+DEBUG CRSRXY,0,1, "Enter the speed (steps/sec): "
+DEBUGIN DEC speed
+DEBUG CRSRXY,0,2, "Enter the ramp time (in 0.1 sec increments): "
+DEBUGIN DEC ramp
+DEBUG CRSRXY,0,3,"Enter motor holding current 0=OFF, 1=ON: "
+DEBUGIN DEC hc
+DEBUG CRSRXY,0,4,"Enter the number of steps to take: "
+DEBUGIN DEC steps
+
+GOSUB CheckBusy                              ' Check Little Step-U is ready
+SEROUT 10,baud,["{A",DEC speed,"}"]          ' Set speed
+SEROUT 10,baud,["{B",DEC ramp,"}"]           ' Set ramp time
+SEROUT 10,baud,["{P",DEC hc,"}"]             ' Stopped current on/off
+
+' ===========================================================================
+' Now do a simple move to a RELATIVE position using the parameters just set.
+' Monitor the BUSY signal to determine when the move has been completed.
+' ===========================================================================
+
+DEBUG CRSRXY,0,6, "Moving ", DEC steps, " at ", DEC speed, " steps/sec."
+SEROUT 10,baud,["{E",DEC steps,"}"]
+GOSUB CheckBusy                                ' Wait till it gets there
+PAUSE 100
+DEBUG CRSRXY,0,7, "FINISHED!!"
+
+
+' ===========================================================================
+' CheckBusy subroutine.
+' Continually checks the state of the BUSY output from the Little Step-U and
+' stays here until it becomes "not busy" (low).
+' ===========================================================================
+
+CheckBusy:
+PAUSE 10
+CB_loop:
+IF IN12 = 1 THEN CB_loop      'Wait till not busy
+PAUSE 1
+RETURN
+
+END
