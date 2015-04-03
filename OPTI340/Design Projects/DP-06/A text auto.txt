@@ -1,0 +1,163 @@
+; in analysis;GO
+CODE V> vie
+    VIE                                                                              03-Apr-15  15H 25M 42S
+                                                CODE V PC  Version: 10.6 SR1         CPU clock:  2H 19M 25S
+VIE> NBR SUR SO..I-1  RED
+VIE> NBR ELE SO..I-1  BLU
+VIE> go
+    The scale factor has been set to 1.2
+CODE V> rim
+    RIM                                                                              03-Apr-15  15H 25M 42S
+                                                CODE V PC  Version: 10.6 SR1         CPU clock:  2H 19M 25S
+RIM> go
+CODE V> spo
+    SPO                                                                              03-Apr-15  15H 25M 42S
+                                                CODE V PC  Version: 10.6 SR1         CPU clock:  2H 19M 25S
+SPO> go
+
+
+
+    RAY STATISTICS FOR FIELD  1 ZOOM  1 ON PLOT:
+
+                                       POINTS     POINTS
+           WAVELENGTH         WEIGHT   TRACED   ATTEMPTED
+
+              633.0              1       316       360
+
+    All displacements are listed relative to the chief ray at the reference wavelength
+    for each field.
+
+       Field  1, (  0.00,  0.00) degrees.  Focus  0.00000      676 Rays
+       Displacement of centroid                    Minimum RMS spot diameter
+        X:   0.00000E+00     Y:   0.00000E+00         0.44131E-01 MM
+       Displacement of center of 100% Spot         Minimum 100% spot diameter
+        X:   0.00000E+00     Y:   0.00000E+00         0.51713E-01
+
+
+       Field  2, (  0.00,-15.00) degrees.  Focus  0.00000      676 Rays
+       Displacement of centroid                    Minimum RMS spot diameter
+        X:   0.00000E+00     Y:   0.99560E-04         0.42608E-01 MM
+       Displacement of center of 100% Spot         Minimum 100% spot diameter
+        X:   0.00000E+00     Y:  -0.57387E-03         0.10669E+00
+
+
+       Field  3, (  0.00, 15.00) degrees.  Focus  0.00000      676 Rays
+       Displacement of centroid                    Minimum RMS spot diameter
+        X:   0.00000E+00     Y:  -0.99560E-04         0.42608E-01 MM
+       Displacement of center of 100% Spot         Minimum 100% spot diameter
+        X:   0.00000E+00     Y:   0.57387E-03         0.10669E+00
+
+
+    The scale factor has been set such that one inch represents   0.04230 MM
+
+
+
+    Spot diagrams are not allowed to overlap.  Points lying outside a
+     0.10408 X  0.10408 MM rectangle centered at the chief ray are not plotted.
+
+
+
+        RELATIVE       DEFOCUSING   TOTAL POINTS       POINTS    PERCENTAGE OF
+      FIELD HEIGHT      POSITION     CALCULATED     NOT PLOTTED  POINTS PLOTTED
+
+       0.00, 0.00           1            316              0          100.0
+       0.00,-1.00           1            316              0          100.0
+       0.00, 1.00           1            316              0          100.0
+CODE V> fie
+    FIE                                                                              03-Apr-15  15H 25M 43S
+                                                CODE V PC  Version: 10.6 SR1         CPU clock:  2H 19M 26S
+FIE> go
+
+
+           ROTATIONALLY SYMMETRIC FIELD ABERRATIONS
+
+POSITION 1          New lens from CVMACRO:cvnewlens.seq
+
+      RELATIVE       ANGLE      X-FOCUS      Y-FOCUS      X-FOCUS      Y-FOCUS      DISTORTION
+    FIELD HEIGHT     (DEG)      AT THE IMAGE SURFACE    (DISPLACED BY  0.000000)    (PER CENT)
+
+        0.00          0.00     1.717635     1.717635     1.717635     1.717635        0.00000
+        0.10          1.50     1.696607     1.707711     1.696607     1.707711       -0.01258
+        0.20          3.00     1.633547     1.677986     1.633547     1.677986       -0.05035
+        0.30          4.50     1.528529     1.628633     1.528529     1.628633       -0.11340
+        0.40          6.00     1.381672     1.559934     1.381672     1.559934       -0.20190
+        0.50          7.50     1.193143     1.472282     1.193143     1.472282       -0.31606
+        0.60          9.00     0.963155     1.366179     0.963155     1.366179       -0.45617
+        0.70         10.50     0.691961     1.242228     0.691961     1.242228       -0.62258
+        0.80         12.00     0.379852     1.101130     0.379852     1.101130       -0.81571
+        0.90         13.50     0.027158     0.943680     0.027158     0.943680       -1.03604
+        1.00         15.00    -0.365762     0.770755    -0.365762     0.770755       -1.28414
+
+    Units of focus are MILLIMETERS
+CODE V> tho
+    New lens from CVMACRO:cvnewlens.seq
+              Position  1, Wavelength =   633.0 NM
+         SA         TCO        TAS        SAS        PTB        DST        AX         LAT        PTZ
+STO   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+  2   0.000503  -0.009449   0.108464   0.068977   0.049234  -0.432359   0.000000   0.000000   0.002857
+  3  -0.042373   0.011863  -0.143148  -0.142410  -0.142041   0.013290   0.000000   0.000000  -0.008243
+  4   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+
+SUM  -0.041870   0.002413  -0.034684  -0.073432  
+
+
+lis
+     New lens from CVMACRO:cvnewlens.seq
+                RDY             THI     RMD       GLA           CCY   THC   GLC
+  OBJ:        INFINITY        INFINITY                          100   100
+> STO:        INFINITY       26.255617                          100     0
+    2:      -119.82734        4.000000       NK5_SCHOTT           0   100
+    3:       -41.53449        0.000000                          UMY   100
+    4:        INFINITY      121.371487                          100   PIM
+  IMG:        INFINITY       -1.717636                          100     0
+
+SPECIFICATION DATA
+   EPD        8.00000
+   DIM             MM
+   WL          633.00
+   REF              1
+   WTW              1
+   XAN        0.00000       0.00000       0.00000
+   YAN        0.00000     -15.00000      15.00000
+   WTF        1.00000       1.00000       1.00000
+   VUY        0.00000       0.00000       0.00000
+   VLY        0.00000       0.00000       0.00000
+   POL            N
+
+APERTURE DATA/EDGE DEFINITIONS
+   CA
+        APERTURE data not specified for surface Obj thru   5
+
+REFRACTIVE INDICES
+    GLASS CODE                    633.00
+   NK5_SCHOTT                   1.520631
+
+SOLVES
+   PIM
+   CUY S3   UMY     -0.033333
+
+No pickups defined in system
+
+
+INFINITE CONJUGATES
+   EFL       120.0000
+   BFL       121.3715
+   FFL       -89.7876
+   FNO        15.0000
+   IMG DIS   119.6539
+   OAL        30.2556
+   PARAXIAL IMAGE
+    HT        32.1539
+   ANG        15.0000
+   ENTRANCE PUPIL
+    DIA        8.0000
+    THI        0.0000
+   EXIT PUPIL
+    DIA       10.6919
+    THI      -39.0070
+
+
+Shape factor:
+eva (((rdy s3)+(rdy s2))/((rdy s3)-(rdy s2)))
+    (((RDY S3)+(RDY S2))/((RDY S3)-(RDY S2))) = -2.0610034217742
+

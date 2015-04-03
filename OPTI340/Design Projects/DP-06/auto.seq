@@ -1,0 +1,8 @@
+rfd .001
+auto
+sa = 0; wtc #1
+tco = 0; wtc #1
+@ast == (tas)-(sas)
+@ast = 0; wtc #1
+int
+go
